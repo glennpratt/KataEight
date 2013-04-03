@@ -4,7 +4,7 @@ class DictionaryLoader
     words = []
     case mode
     when :plain
-      IO.foreach(file_name) {|x| words << x }
+      IO.foreach(file_name) {|x| words << x.chomp }
     end
     words
   end
