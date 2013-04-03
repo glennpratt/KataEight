@@ -11,15 +11,13 @@ class ConcatWordFinder
     end
   end
 
-  private
+  def self.find_words_this_begins_with(word, words)
+    words.select { |w| w.start_with?(word) }
+  end
 
-    def self.find_words_this_begins_with(word, words)
-      words.select { |w| w.start_with?(word) }
-    end
-
-    def self.is_word?(word)
-      word.length >= 2
-    end
+  def self.is_word?(word)
+    word.length >= 2
+  end
 
 end
 
