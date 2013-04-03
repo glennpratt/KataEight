@@ -1,12 +1,15 @@
-# a word is at least two letters
+class Words
 
-class ConcatWordFinder
+  def initialize(dictionary)
+    @words = dictionary
+  end
 
-  def self.find(words)
+  def beginning_with_two_words(words)
     words.each do |word|
       if is_word?(word)
         leads = find_words_this_begins_with(word, words)
         puts 'the leads for ' + word + ': ' + leads.to_s
+
       end
     end
   end
@@ -22,5 +25,4 @@ class ConcatWordFinder
 end
 
 dictionary = DictionaryLoader.load_file("wordsEn.txt")
-
-ConcatWordFinder.find(dictionary)
+Words.beginning_with_two_words(dictionary)
