@@ -4,7 +4,7 @@ class Words
     @words = Hash[*dictionary]
   end
 
-  def beginning_with_two_words(words)
+  def beginning_with_two_words
     @words.each do |word|
       if is_word?(word)
         leads = find_words_that_begin_with(word)
