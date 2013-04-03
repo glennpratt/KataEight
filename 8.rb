@@ -23,11 +23,6 @@ class ConcatWordFinder
 
 end
 
-dictionary = [
-  "a",
-  "al",
-  "bums",
-  "albums"
-]
+dictionary = DictionaryLoader.load_file("wordsEn.txt")
 
 ConcatWordFinder.find(dictionary)
