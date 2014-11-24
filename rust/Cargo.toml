@@ -3,3 +3,7 @@
 name = "kata-eight"
 version = "0.0.1"
 authors = ["Glenn Pratt <glenn.pratt@acquia.com>"]
+
+[dependencies]
+
+time = "*"
