@@ -32,9 +32,9 @@ public class WordOfTwo {
     }
 
     public static void main(String[] args) {
-        for (int i = 0; i < 2; i++) {
-    		test();
-    	}
+        // for (int i = 0; i < 2; i++) {
+        test();
+      // }
     }
 
     public static void test() {
@@ -42,9 +42,9 @@ public class WordOfTwo {
 
         long startTime = System.nanoTime();
         try {
-            dictionary.loadFile("res/wordsEn.txt");
+            dictionary.loadFile("../assets/wordsEn.txt");
         } catch (IOException e) {
-        	throw new RuntimeException("Failed to open dictionary.", e);
+          throw new RuntimeException("Failed to open dictionary.", e);
         }
 
         long searchTime = System.nanoTime();
@@ -53,15 +53,15 @@ public class WordOfTwo {
         
         //System.out.println(match);
 
-        System.out.println("Load Time: " + (searchTime - startTime) / 1000000 + "ms");
-        System.out.println("Search Time: " + (endTime - searchTime) / 1000000 + "ms");
-        System.out.println("Total Time: " + (endTime - startTime) / 1000000 + "ms");
+        System.out.println("Load Time: " + (searchTime - startTime) + " ns");
+        System.out.println("Search Time: " + (endTime - searchTime) + " ns");
+        System.out.println("Total Time: " + (endTime - startTime) + " ns");
         
         int expected = 3715;
         int count = match.size();
         System.out.println("Found: " + count + " words");
         
         if (count != expected)
-        	throw new RuntimeException("Expected " + expected + " matches, got " + count + " matches.");
+          throw new RuntimeException("Expected " + expected + " matches, got " + count + " matches.");
     }
 }
