@@ -53,14 +53,25 @@ pub fn main() {
 mod test_bench {
     extern crate test;
 
+    use std::collections::HashSet;
     use Dictionary;
     use self::test::Bencher;
+
+    #[test]
+    fn should_find_a_word_of_two() {
+        let mut set = HashSet::new();
+        set.insert("hub".to_string());
+        set.insert("bub".to_string());
+        set.insert("hubbub".to_string());
+        let dict = Dictionary {dict: set};
+        assert_eq!("hubbub" , dict.words_of_two()[0].as_slice());
+    }
 
     #[test]
     fn should_find_n_words_of_two() {
         let path = Path::new("assets/wordsEn.txt");
         let dict = Dictionary::load_from_file(&path);
-        assert_eq!(3715u , dict.words_of_two().len());
+        assert_eq!(3715, dict.words_of_two().len());
     }
 
     #[bench]
