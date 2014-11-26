@@ -10,6 +10,7 @@ pub struct Dictionary {
 }
 
 impl Dictionary {
+    /// Makes a new 'Dictionary' by reading words from a file, 1 per line.
     pub fn load_from_file(path: &Path) -> Dictionary {
         let mut dict = HashSet::new();
         let mut file = BufferedReader::new(File::open(path));
@@ -19,6 +20,7 @@ impl Dictionary {
         Dictionary {dict: dict}
     }
 
+    /// Finds words of length 6 made up of two words 2 or more characters long.
     pub fn words_of_two(&self) -> Vec<&String> {
         let mut matches: Vec<&String> = Vec::new();
         for word in self.dict.iter() {
